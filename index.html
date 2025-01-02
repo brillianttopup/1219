@@ -3,137 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Information</title>
+    <title>Login Interface</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            overflow: hidden;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
         }
 
         .container {
-            background: linear-gradient(135deg, #007991, #78ffd6);
-            padding: 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            width: 400px;
-            animation: slideIn 1s ease-out;
-        }
-
-        .container h2 {
+            width: 350px;
+            padding: 20px;
+            border: 2px solid #00ff00;
+            border-radius: 20px;
             text-align: center;
+            background-color: #333333;
+        }
+
+        .container img {
+            width: 100px;
+            height: 100px;
             margin-bottom: 20px;
-            color: #fff;
-            font-size: 24px;
-            animation: glow 1.5s ease-in-out infinite alternate;
+            border-radius: 50%;
+            border: 2px solid #00ff00;
         }
 
-        .info {
-            margin: 15px 0;
+        .container h1 {
+            color: #00ff00;
+            margin-bottom: 30px;
+        }
+
+        .container input {
+            width: 90%;
             padding: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
+            margin: 10px 0;
+            border: 2px solid #00ff00;
+            border-radius: 20px;
+            background-color: #000;
+            color: #00ff00;
+            font-size: 16px;
+        }
+
+        .container button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #00ff00;
+            color: #000;
             font-size: 18px;
-            animation: fadeInText 1s ease-in-out forwards;
+            cursor: pointer;
         }
 
-        .info span {
-            font-weight: bold;
-            color: #e0f7fa;
-            animation: slideInText 1.5s ease-out;
+        .container button:hover {
+            background-color: #33cc33;
         }
 
-        .container:hover {
-            transform: scale(1.05);
-            transition: 0.5s ease;
+        #loading {
+            display: none;
+            color: #00ff00;
+            font-size: 18px;
+            margin-top: 20px;
         }
 
-        @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        #countdown {
+            color: #00ff00;
+            font-size: 18px;
+            margin-top: 10px;
         }
 
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInText {
-            0% {
-                transform: translateX(-20px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #bbb, 0 0 20px #bbb;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #fff;
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
-            .container {
-                width: 90%;
-                padding: 15px 20px;
-            }
-
-            .container h2 {
-                font-size: 20px;
-            }
-
-            .info {
-                font-size: 16px;
-            }
+        #success {
+            display: none;
+            color: #00ff00;
+            font-size: 18px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Profile Information</h2>
-        <div class="info">
-            <span>Agent Name:</span> Mubassir Ahsan
-        </div>
-        <div class="info">
-            <span>Mobile:</span> +8801916303060
-        </div>
-        <div class="info">
-            <span>Division:</span> Dhaka
-        </div>
-        <div class="info">
-            <span>District:</span> Dhaka
-        </div>
-        <div class="info">
-            <span>Thana:</span> Khilgaon
-        </div>
-        <div class="info">
-            <span>Street Address:</span> House-27, Road-10, Block-L, South Banasree
-        </div>
-        <div class="info">
-            <span>Shop Name:</span> Sothik IT
-        </div>
-        <div class="info">
-            <span>Postal Code:</span> 1219, Bangladesh
-        </div>
+        <img src="https://i.ibb.co/5543XTm/presentation.gif" alt="Logo">
+        <h1>Welcome to reality</h1>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <div id="loading">Loading... Please wait.</div>
+        <div id="countdown"></div>
+        <div id="success">আপনার এস এম এস পাঠানো হয়েছে।</div>
     </div>
+
+    <script>
+        function login() {
+            // সঠিক ইমেইল এবং পাসওয়ার্ড
+            const correctEmail = "hacker24";
+            const correctPassword = "admin5022";
+
+            // ব্যবহারকারীর ইনপুট পাওয়া
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // যাচাই করা
+            if (email === correctEmail && password === correctPassword) {
+                document.getElementById('loading').style.display = "block"; // লোডিং দেখানো
+                let countdown = 30;
+                const countdownElement = document.getElementById('countdown');
+                countdownElement.style.display = "block";
+
+                const interval = setInterval(() => {
+                    countdownElement.textContent = `Time remaining: ${countdown} seconds`;
+                    countdown--;
+
+                    if (countdown < 0) {
+                        clearInterval(interval);
+                        document.getElementById('loading').style.display = "none";
+                        countdownElement.style.display = "none";
+                        document.getElementById('success').style.display = "block"; // সফল বার্তা দেখানো
+                    }
+                }, 1000); // প্রতি সেকেন্ডে আপডেট
+            } else {
+                alert("Invalid email or password!");
+            }
+        }
+    </script>
 </body>
 </html>
