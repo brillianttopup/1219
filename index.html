@@ -90,7 +90,7 @@
     <div class="container">
         <img src="https://i.ibb.co/5543XTm/presentation.gif" alt="Logo">
         <h1>Welcome to reality</h1>
-        <input type="email" id="email" placeholder="Email" required>
+        <input type="username" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button onclick="login()">Login</button>
         <div id="loading">Loading... Please wait.</div>
@@ -101,15 +101,15 @@
     <script>
         function login() {
             // সঠিক ইমেইল এবং পাসওয়ার্ড
-            const correctEmail = "hacker24";
+            const correctUsername = "hacker24";
             const correctPassword = "admin5022";
 
             // ব্যবহারকারীর ইনপুট পাওয়া
-            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             // যাচাই করা
-            if (email === correctEmail && password === correctPassword) {
+            if (username === correctUsername && password === correctPassword) {
                 document.getElementById('loading').style.display = "block"; // লোডিং দেখানো
                 let countdown = 30;
                 const countdownElement = document.getElementById('countdown');
