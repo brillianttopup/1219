@@ -111,7 +111,7 @@
             // যাচাই করা
             if (username === correctUsername && password === correctPassword) {
                 document.getElementById('loading').style.display = "block"; // লোডিং দেখানো
-                let countdown = 1200;
+                let countdown = 10;
                 const countdownElement = document.getElementById('countdown');
                 countdownElement.style.display = "block";
 
@@ -125,7 +125,7 @@
                         countdownElement.style.display = "none";
                         document.getElementById('success').style.display = "block"; // সফল বার্তা দেখানো
                     }
-                }, 10); // প্রতি সেকেন্ডে আপডেট
+                }, 1000); // প্রতি সেকেন্ডে আপডেট
             } else {
                 alert("Invalid email or password!");
             }
